@@ -18,4 +18,4 @@ def au_file(name='test.au', freq=400, dur=1000, vol=0.5):
         fout.write(pack('b', vol * 127 * sin_seg))
     fout.close()
 
-au_file(name='./soundfiles/soundfile-1.au', freq=800, dur=10000, vol=0.8)
+au_file(name='../soundfiles/soundfile-1.au', freq=800, dur=10000, vol=0.8)
