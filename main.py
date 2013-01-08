@@ -19,17 +19,17 @@ def au_file(name='test.au', freq=400, dur=1000, vol=0.5):
     # write data
     #freqs = [400, 600, 400, 800, 550]
     freqs = range(0, 1000, 30)
-    jump = 32;
-    for seg in range(0,64 * dur, jump):
-        t = seg / 8000.0
-        w = t * 2 * pi
-        # sine wave calculations
-        i = int(seg / 4000) % len(freqs)
-        freq = freqs[i]
-        sin_seg = sin(400+400*sin(seg * factor * .01)*seg/dur)
-        # sin_seg = sin(freq*seg*factor)
-        #sin_seg = sin((freq + 1*sin(w*5)) * w)
-        fout.write(pack('b', vol * 127 * sin_seg))
+    for ju in range(100, 0, -10):
+      for seg in range(0,30 * dur, ju):
+          t = seg / 8000.0
+          w = t * 2 * pi
+          # sine wave calculations
+          i = int(seg / 4000) % len(freqs)
+          freq = freqs[i]
+          sin_seg = sin(400+400*sin(seg * factor * .01)*seg/dur)
+          # sin_seg = sin(freq*seg*factor)
+          #sin_seg = sin((freq + 1*sin(w*5)) * w)
+          fout.write(pack('b', vol * 127 * sin_seg))
     fout.close()
 
 # test the module ...
